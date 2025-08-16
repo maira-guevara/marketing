@@ -385,7 +385,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function addInteractiveElements() {
     // Add hover effects to cards
-    const cards = document.querySelectorAll('.metric-card, .value-card, .education-card, .event-item, .project-card');
+    const cards = document.querySelectorAll('.metric-card, .value-card, .education-card, .experience-card, .event-item, .project-card');
     
     cards.forEach(card => {
         card.addEventListener('mouseenter', function() {
