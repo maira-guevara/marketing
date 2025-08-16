@@ -4,7 +4,6 @@ const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 const backToTopBtn = document.getElementById('backToTop');
-const contactForm = document.getElementById('contactForm');
 
 // Initialize AOS (Animate On Scroll)
 document.addEventListener('DOMContentLoaded', function() {
@@ -104,50 +103,7 @@ window.addEventListener('scroll', function() {
     });
 });
 
-// Contact form handling
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(this);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const message = formData.get('message');
-        
-        // Basic validation
-        if (!name || !email || !message) {
-            showNotification('Por favor, completa todos los campos', 'error');
-            return;
-        }
-        
-        if (!isValidEmail(email)) {
-            showNotification('Por favor, ingresa un email válido', 'error');
-            return;
-        }
-        
-        // Simulate form submission
-        const submitBtn = this.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-        
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-        submitBtn.disabled = true;
-        
-        // Simulate API call
-        setTimeout(() => {
-            showNotification('¡Mensaje enviado con éxito! Te contactaremos pronto.', 'success');
-            this.reset();
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        }, 2000);
-    });
-}
 
-// Email validation helper
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
 
 // Notification system
 function showNotification(message, type = 'info') {
@@ -429,7 +385,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function addInteractiveElements() {
     // Add hover effects to cards
-    const cards = document.querySelectorAll('.metric-card, .value-card, .education-card, .project-card');
+    const cards = document.querySelectorAll('.metric-card, .value-card, .education-card, .event-item, .project-card');
     
     cards.forEach(card => {
         card.addEventListener('mouseenter', function() {
